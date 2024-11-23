@@ -1,0 +1,76 @@
+.navbar{
+    padding: 0 2rem;
+    z-index: 5;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav div{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-left: 22px;
+    padding-right: 22px;
+    border-right: solid 1px #c3c3c3;
+}
+
+#user-menu-btn {
+    background-color: transparent !important;
+    border: none;
+}
+
+.user-icon {
+    color: #565E64;
+}
+
+.nav div p, h2{
+    margin: 0;
+}
+
+p{
+    font-size: 0.8rem;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+.main-logo{
+    width: 3.5rem;
+    height: 3rem;
+}
+
+.modal-backdrop.show {
+    z-index: 10 !important;
+}
+
+.modal {
+    z-index: 1050;
+}
+
+.rb-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+
+label{
+    font-size: 0.8rem;
+    padding: 2px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .nav div{
+        border: none;
+    }
+}
+
+@media only screen and (max-width: 995px) {
+    .navbar{
+        padding-bottom: 20px;
+    }
+}

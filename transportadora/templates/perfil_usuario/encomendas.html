@@ -1,0 +1,128 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block topnav %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Encomendas</title>
+    <link rel="stylesheet" href="{% static 'css/editUser/encomenda.css'%}">
+    <!-- Adicionar CSS do Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container-encomendas">
+        <h5 class="h1-enco">Suas Encomendas</h5>
+        
+        <form class="form-enco" id="clienteForm">
+            <label for="cliente">Nome do Cliente:</label>
+            <input type="text" id="cliente" name="cliente" required>
+            <button class="btn btn-primary col-md-2 custom-btn" type="submit" data-bs-toggle="modal" data-bs-target="#rastreioModal">Buscar Encomendas</button>
+        </form>
+
+        <h5>Histórico</h5>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Etiqueta</th>
+                <th scope="col">Remetente</th>
+                <th scope="col">Destinatário</th>
+                <th scope="col">Previsão de entrega</th>
+                <th scope="col">Ações</th> <!-- Coluna para os botões -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>234234</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>988198</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr></tr>
+                <th scope="row">3</th>
+                <td>234234</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>988198</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        <!-- Modal de Rastreamento -->
+        <div class="modal fade" id="rastreioModal" tabindex="-1" aria-labelledby="rastreioModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="rastreioModalLabel">Rastreamento de Encomenda</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Rota do Produto: #8484818 (Teclado gamer)</h5>
+                        <p>Saindo de: Barueri, São Paulo</p>
+                        <p>Destino: Duque de Caxias, Rio de Janeiro</p>
+                        <p>Previsão de Entrega: 5 dias úteis</p>
+                        <!-- Mapa -->
+                        <div id="map" style="height: 400px;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adicionar JS do Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="{% static 'js/encomendasJs.js' %}"></script>
+</body>
+</html>
+{% include "homepage/footer.html" %}
+{% endblock %}

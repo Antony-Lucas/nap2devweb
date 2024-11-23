@@ -1,0 +1,41 @@
+.services-container{
+    padding: 7rem 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-container p {
+    margin-bottom: 1px;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+    background-color: #008080;
+    padding: 2rem;
+    border-radius: 6px;
+    height: 15rem;
+    width: 18rem;
+}
+
+.card h4{
+    color: #ffffff;
+}
+
+.card button{
+    border: solid 2px #FCD469;
+    background-color: transparent;
+    color: #FCD469;
+    padding: 0.8rem 1.2rem;
+    transition: .5s;
+}
+
+.card button:hover{
+    color: #008080;
+    background-color: #FCD469;
+}

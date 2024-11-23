@@ -1,0 +1,38 @@
+.body-container{
+    margin-top: 5rem;
+}
+
+.create-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8rem;
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    width: 80%;
+}
+
+.center h2{
+    margin-bottom: 2rem;
+}
+
+.center h5{
+    margin-top: 3rem;
+}
+
+.form{
+    width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+    .form{
+        width: 100%;
+    }
+}

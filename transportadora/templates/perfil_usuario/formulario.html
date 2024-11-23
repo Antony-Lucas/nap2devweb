@@ -1,0 +1,65 @@
+{%load static%}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{%static 'css/editUSer/formulario.css'%}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="body-container">
+  <i class="bi bi-person-circle fs-1 acc-icon"></i>
+  <form>
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label for="inputEmail4">Nome completo</label>
+        <input type="text" class="form-control" id="textNome">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Data de nascimento</label>
+        <input type="date" class="form-control" id="inputdata">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="Contato">Contato</label>
+        <input type="text" class="form-control" id="contato" placeholder="(DDD) 91234-5678">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input type="email" class="form-control" id="inputEmail4"  placeholder="support@expressLog.com">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Senha</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="********">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">CPF</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="000.000.000-00">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputAddress">Complemento</label>
+        <input type="text" class="form-control" id="inputAddress">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Endereço</label>
+      <input type="text" class="form-control" id="inputAddress2">
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Cidade</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputZip">CEP</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+    <div class="form-group">
+      <br>
+    </div>
+    <button type="submit" class="btn btn-primary col-md-12">Atualizar dados</button>
+  </form>
+</body>

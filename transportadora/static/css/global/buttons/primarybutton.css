@@ -1,0 +1,27 @@
+.btn-custom {
+    background-color: #ff6600; 
+    color: white; 
+    padding: 5px 20px;
+    border: none !important;
+    border-radius: 5px; 
+}
+
+.btn-custom:hover{
+    color: #fff;
+    background-color: #ff6600;
+}
+
+.btn-custom:focus{
+    color: #fff;
+}
+
+form .btn-login {
+    margin-top: 2rem !important;
+    width: 100%;
+}
+
+.center{
+    padding: 15px 8px;
+    display: flex;
+    justify-content: center;
+}
