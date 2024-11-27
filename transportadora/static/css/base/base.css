@@ -26,6 +26,17 @@
     color: #565E64;
 }
 
+.login-button{
+    text-decoration: none;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.login-button p{
+    margin: 0 !important;
+}
+
 .nav div p, h2{
     margin: 0;
 }

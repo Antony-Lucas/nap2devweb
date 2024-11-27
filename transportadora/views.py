@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm, LoginForm
-from django.contrib.auth import get_user_model
-from django.shortcuts import redirect
-from django.contrib import messages
+from django.contrib.auth import get_user_model, logout, authenticate, login
+from django.shortcuts import redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Encomenda
+from .forms import CustomUserForm, EncomendaForm
 
 User = get_user_model()
 def index_view(request):
@@ -46,11 +47,63 @@ def login_view(request):
     }
     return render(request, 'auth/login.html', context)
 
+@login_required
 def edit_perfil(request):
-    return render(request, 'perfil_usuario/editar_perfil_usuario.html')
+    user = request.user 
 
-def encomenda(request):
-    return render(request, 'perfil_usuario/encomendas.html')
+    if request.method == 'POST':
+        form = CustomUserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return render(request, 'perfil_usuario/editar_perfil_usuario.html', {'form': form, 'success': True})
+    else:
+        form = CustomUserForm(instance=user)
+
+    return render(request, 'perfil_usuario/editar_perfil_usuario.html', {'form': form})
+
+
+@login_required
+def cadastrar_encomenda(request):
+    if request.method == 'POST':
+        form = EncomendaForm(request.POST)
+        if form.is_valid():
+            encomenda = form.save(commit=False)
+            encomenda.usuario = request.user 
+            encomenda.save()
+            return redirect('encomenda')  
+    else:
+        form = EncomendaForm()
+    return render(request, 'transport/transport.html', {'form': form})
+
+@login_required
+def editar_encomenda(request, pk):
+    encomenda = get_object_or_404(Encomenda, pk=pk, usuario=request.user)
+    if request.method == 'POST':
+        form = EncomendaForm(request.POST, instance=encomenda)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_encomendas') 
+    else:
+        form = EncomendaForm(instance=encomenda)
+    return render(request, 'transport/trasnport.html', {'form': form})
+
+@login_required
+def excluir_encomenda(request, pk):
+    encomenda = get_object_or_404(Encomenda, pk=pk, usuario=request.user)
+    encomenda.delete()
+    return redirect('listar_encomendas')  
+
+@login_required
+def listar_encomendas(request):
+    encomendas = Encomenda.objects.filter(usuario=request.user)
+    return render(request, 'perfil_usuario/encomendas.html', {'encomendas': encomendas})
 
 def transport(request):
     return render(request, 'transport/transport.html')
+
+def encomenda(request):
+    return render(request, "perfil_usuario/encomendas.html")
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'index.html')

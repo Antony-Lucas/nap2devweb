@@ -42,14 +42,14 @@
             
             <ul class="navbar-nav ms-auto">
                 <!-- Botão de Entrar -->
-                <li class="nav-item" {% if is_authenticated %}style="display: none;"{% endif %}>
-                    <button id="sign-btn" type="button" class="btn btn-primary btn-custom-outlined" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-                        <a style="text-decoration: none;" href="{% url 'login' %}">Entrar</a>
-                    </button>
+                <li class="nav-item {% if request.user.is_authenticated %}d-none{% endif %}">
+                    <a href="{% url 'login' %}" id="sign-btn" type="button" class="btn-custom-outlined login-button">
+                        <p style="color: #000;">Entrar</p>
+                     </a>
                 </li>
             
                 <!-- Botão do Usuário -->
-                <li {% if not is_authenticated %}style="display: none;"{% endif %}>
+                <li class="nav-item {% if not request.user.is_authenticated %}d-none{% endif %}">
                     <div class="dropdown" id="user-btn">
                         <button class="btn dropdown-toggle" type="button" id="user-menu-btn" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="bi bi-person-circle user-icon fs-2"></i>
